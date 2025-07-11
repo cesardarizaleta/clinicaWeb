@@ -1,0 +1,79 @@
+{
+  "respuestas": [
+    {
+      "id": 1,
+      "palabras_clave": ["especialidades", "especialidad", "areas", "departamentos", "servicios medicos"],
+      "respuesta": "🏥 Nuestras especialidades médicas incluyen:\n\n• Cardiología\n• Neurología\n• Pediatría\n• Ginecología y Obstetricia\n• Traumatología\n• Dermatología\n• Oftalmología\n• Otorrinolaringología\n• Psiquiatría\n• Medicina Interna\n• Cirugía General\n• Urología\n\n¿Te interesa alguna especialidad en particular?"
+    },
+    {
+      "id": 2,
+      "palabras_clave": ["doctores", "medicos", "especialistas", "profesionales", "staff"],
+      "respuesta": "👨‍⚕️ Contamos con un equipo de médicos altamente calificados:\n\n• Dr. Carlos Mendoza - Cardiología\n• Dra. Ana García - Pediatría\n• Dr. Luis Rodríguez - Neurología\n• Dra. María López - Ginecología\n• Dr. José Martín - Traumatología\n• Dra. Carmen Silva - Dermatología\n• Dr. Roberto Vega - Oftalmología\n• Dra. Patricia Ruiz - Psiquiatría\n\nTodos nuestros médicos están certificados y tienen amplia experiencia. ¿Necesitas información sobre algún doctor específico?"
+    },
+    {
+      "id": 3,
+      "palabras_clave": ["cita", "citas", "agendar", "reservar", "turno", "appointment"],
+      "respuesta": "📅 Para agendar una cita puedes:\n\n1. **Llamar**: (01) 234-5678\n2. **WhatsApp**: +51 987-654-321\n3. **Presencialmente**: En recepción\n4. **Online**: www.clinicasanrafael.com\n\n📋 **Información necesaria**:\n• Nombre completo\n• DNI\n• Especialidad requerida\n• Preferencia de horario\n• Seguro médico (si aplica)\n\n⏰ **Horarios disponibles**: Lunes a Viernes 8:00 AM - 6:00 PM, Sábados 8:00 AM - 2:00 PM"
+    },
+    {
+      "id": 4,
+      "palabras_clave": ["horarios", "horario", "atencion", "funcionamiento", "abierto"],
+      "respuesta": "🕐 **Horarios de Atención**:\n\n**Consultas Generales**:\n• Lunes a Viernes: 8:00 AM - 6:00 PM\n• Sábados: 8:00 AM - 2:00 PM\n• Domingos: Cerrado\n\n**Emergencias**: 24 horas, todos los días\n\n**Laboratorio**:\n• Lunes a Viernes: 6:00 AM - 4:00 PM\n• Sábados: 6:00 AM - 12:00 PM\n\n**Farmacia**:\n• Lunes a Viernes: 8:00 AM - 8:00 PM\n• Sábados: 8:00 AM - 6:00 PM"
+    },
+    {
+      "id": 5,
+      "palabras_clave": ["ubicacion", "direccion", "donde", "como llegar", "address"],
+      "respuesta": "📍 **Ubicación de Clínica San Rafael**:\n\n🏥 **Dirección**: Av. Salud 1234, San Isidro, Lima\n\n🚗 **Cómo llegar**:\n• En auto: Estacionamiento disponible\n• Metro: Estación San Isidro (Línea 1)\n• Bus: Paradero 'Clínica San Rafael'\n\n🅿️ **Estacionamiento**: Gratuito para pacientes\n\n📱 **Referencias**: Frente al Parque Central, al lado del Banco Continental\n\n¿Necesitas indicaciones más específicas desde algún punto de la ciudad?"
+    },
+    {
+      "id": 6,
+      "palabras_clave": ["emergencia", "emergencias", "urgencia", "urgencias", "24 horas"],
+      "respuesta": "🚨 **Servicio de Emergencias 24/7**:\n\n📞 **Teléfono de Emergencia**: (01) 234-5679\n🚑 **Ambulancia**: (01) 234-5680\n\n⚡ **Atendemos**:\n• Accidentes de tránsito\n• Infartos y problemas cardíacos\n• Fracturas y traumatismos\n• Intoxicaciones\n• Quemaduras graves\n• Dificultad respiratoria\n• Emergencias pediátricas\n\n🏥 **Ubicación**: Ingreso por Av. Salud 1234 - Puerta de Emergencias\n\n⚠️ **En caso de emergencia grave, también puedes llamar al 116 (SAMU)**"
+    },
+    {
+      "id": 7,
+      "palabras_clave": ["seguro", "seguros", "eps", "essalud", "particular"],
+      "respuesta": "💳 **Seguros y Formas de Pago**:\n\n✅ **Seguros Aceptados**:\n• EsSalud\n• Pacífico Seguros\n• Rímac Seguros\n• La Positiva Seguros\n• Mapfre Seguros\n• Interseguro\n• Sanitas Perú\n\n💰 **Formas de Pago**:\n• Efectivo\n• Tarjetas de crédito/débito\n• Transferencias bancarias\n• Pagos online\n\n📋 **Atención Particular**: También disponible para pacientes sin seguro\n\n¿Tienes algún seguro específico? Puedo ayudarte con más información."
+    },
+    {
+      "id": 8,
+      "palabras_clave": ["laboratorio", "examenes", "analisis", "pruebas", "tests"],
+      "respuesta": "🔬 **Servicios de Laboratorio**:\n\n🩸 **Análisis disponibles**:\n• Hemograma completo\n• Perfil lipídico\n• Glucosa y hemoglobina glicosilada\n• Función renal y hepática\n• Exámenes de orina\n• Cultivos microbiológicos\n• Marcadores tumorales\n• Hormonas tiroideas\n• Pruebas de embarazo\n\n⏰ **Horarios**: Lunes a Viernes 6:00 AM - 4:00 PM\n📋 **Preparación**: Algunos exámenes requieren ayuno\n📞 **Información**: (01) 234-5681\n\n¿Necesitas información sobre algún examen específico?"
+    },
+    {
+      "id": 9,
+      "palabras_clave": ["farmacia", "medicamentos", "remedios", "recetas"],
+      "respuesta": "💊 **Farmacia Clínica San Rafael**:\n\n🏪 **Servicios**:\n• Medicamentos con y sin receta\n• Productos de cuidado personal\n• Suplementos vitamínicos\n• Material médico\n• Productos para bebés\n\n⏰ **Horarios**:\n• Lunes a Viernes: 8:00 AM - 8:00 PM\n• Sábados: 8:00 AM - 6:00 PM\n\n💳 **Formas de pago**: Efectivo, tarjetas, seguros\n🚚 **Delivery**: Disponible en Lima Metropolitana\n📞 **Pedidos**: (01) 234-5682\n\n¿Necesitas información sobre algún medicamento específico?"
+    },
+    {
+      "id": 10,
+      "palabras_clave": ["precios", "costos", "tarifas", "cuanto cuesta", "precio"],
+      "respuesta": "💰 **Información de Precios**:\n\n👨‍⚕️ **Consultas**:\n• Medicina General: S/. 80\n• Especialidades: S/. 120 - S/. 180\n• Consulta de Emergencia: S/. 150\n\n🔬 **Exámenes comunes**:\n• Hemograma: S/. 25\n• Glucosa: S/. 15\n• Perfil lipídico: S/. 45\n• Examen de orina: S/. 20\n\n📋 **Nota importante**: Los precios pueden variar según el seguro médico. Muchos procedimientos están cubiertos por seguros.\n\n📞 Para cotizaciones específicas, llama al (01) 234-5678"
+    },
+    {
+      "id": 11,
+      "palabras_clave": ["covid", "coronavirus", "prueba covid", "pcr", "antigeno"],
+      "respuesta": "🦠 **Servicios COVID-19**:\n\n🧪 **Pruebas disponibles**:\n• Prueba de Antígenos: S/. 35 (resultado en 15 min)\n• Prueba PCR: S/. 120 (resultado en 24-48 hrs)\n• Prueba de Anticuerpos: S/. 45\n\n⏰ **Horarios especiales COVID**:\n• Lunes a Viernes: 7:00 AM - 5:00 PM\n• Sábados: 7:00 AM - 1:00 PM\n\n📋 **Requisitos**: Documento de identidad\n🏥 **Ubicación**: Módulo especial en el patio principal\n\n⚠️ **Protocolos de seguridad**: Uso obligatorio de mascarilla y distanciamiento social"
+    },
+    {
+      "id": 12,
+      "palabras_clave": ["pediatria", "niños", "bebes", "pediatra", "infantil"],
+      "respuesta": "👶 **Servicio de Pediatría**:\n\n👨‍⚕️ **Nuestros pediatras**:\n• Dra. Ana García - Pediatría General\n• Dr. Miguel Torres - Neonatología\n• Dra. Rosa Mendoza - Pediatría Especializada\n\n🏥 **Servicios**:\n• Control de crecimiento y desarrollo\n• Vacunación completa\n• Emergencias pediátricas\n• Consultas especializadas\n• Cirugía pediátrica menor\n\n⏰ **Horarios**: Lunes a Viernes 8:00 AM - 6:00 PM\n🎯 **Edades**: Desde recién nacidos hasta 17 años\n\n📞 **Citas**: (01) 234-5678"
+    },
+    {
+      "id": 13,
+      "palabras_clave": ["cardiologia", "corazon", "cardiologo", "presion", "hipertension"],
+      "respuesta": "❤️ **Servicio de Cardiología**:\n\n👨‍⚕️ **Especialista**: Dr. Carlos Mendoza\n\n🔍 **Servicios**:\n• Electrocardiogramas (ECG)\n• Ecocardiogramas\n• Pruebas de esfuerzo\n• Holter de 24 horas\n• Control de hipertensión\n• Evaluación de arritmias\n• Consultas preventivas\n\n⚡ **Emergencias cardíacas**: Atención 24/7\n📅 **Citas**: Lunes, Miércoles y Viernes\n⏰ **Horarios**: 9:00 AM - 5:00 PM\n\n📞 **Reservas**: (01) 234-5678"
+    },
+    {
+      "id": 14,
+      "palabras_clave": ["ginecologia", "obstetricia", "embarazo", "ginecologo", "mujer"],
+      "respuesta": "🤱 **Ginecología y Obstetricia**:\n\n👩‍⚕️ **Especialista**: Dra. María López\n\n🏥 **Servicios**:\n• Control prenatal completo\n• Ecografías obstétricas\n• Planificación familiar\n• Papanicolaou\n• Colposcopía\n• Tratamiento de infecciones\n• Consultas de fertilidad\n• Menopausia\n\n👶 **Partos**: Atención 24/7\n📅 **Consultas**: Martes a Sábado\n⏰ **Horarios**: 8:00 AM - 4:00 PM\n\n📞 **Citas**: (01) 234-5678"
+    },
+    {
+      "id": 15,
+      "palabras_clave": ["traumatologia", "fracturas", "huesos", "traumatologo", "lesiones"],
+      "respuesta": "🦴 **Servicio de Traumatología**:\n\n👨‍⚕️ **Especialista**: Dr. José Martín\n\n🏥 **Tratamos**:\n• Fracturas de todo tipo\n• Luxaciones\n• Lesiones deportivas\n• Artritis y artrosis\n• Dolor de espalda\n• Cirugía ortopédica\n• Rehabilitación\n\n📱 **Rayos X**: Disponible en el momento\n🚑 **Emergencias**: Atención inmediata\n📅 **Consultas**: Lunes a Viernes\n⏰ **Horarios**: 8:00 AM - 6:00 PM\n\n📞 **Citas**: (01) 234-5678"
+    }
+  ]
+}

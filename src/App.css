@@ -1,0 +1,354 @@
+/* src/App.css */
+
+/* --- Estilos Generales --- */
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background-color: #e3f2fd; /* Azul claro muy suave para el fondo general */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  color: #333;
+  overflow: hidden; /* Evita el scroll del body si el chatbot es 100vh */
+}
+
+.chatbot-container {
+  background-color: #ffffff; /* Blanco para el fondo principal del contenedor */
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada para PC */
+  width: 90%; /* Ocupa el 90% del ancho en PC */
+  max-width: 1000px; /* Ancho máximo amplio para PC */
+  height: 85vh; /* Altura del 85% del viewport para un buen espacio en PC */
+  min-height: 550px; /* Altura mínima para evitar que sea muy pequeño */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Asegura que el contenido no se desborde */
+  border: 1px solid #bbdefb; /* Borde sutil azul claro */
+}
+
+.chatbot-header {
+  background-color: #2196f3; /* Azul primario de clínica */
+  color: white;
+  padding: 20px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  text-align: center;
+  font-size: 1.6em; /* Un poco más grande para PC */
+  font-weight: bold;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); /* Sombra más fuerte para el encabezado */
+  position: relative; /* Para posibles iconos o elementos decorativos */
+  display: flex; /* Para alinear el título y el switch */
+  justify-content: space-between; /* Espacio entre el título y el switch */
+  align-items: center; /* Centrar verticalmente */
+}
+
+.chatbot-header h1 {
+    margin: 0; /* Eliminar el margen predeterminado del h1 */
+    flex-grow: 1; /* Permite que el h1 ocupe el espacio disponible */
+}
+
+.chatbot-header::before {
+  content: '⚕️'; /* Icono de salud o medicina */
+  position: absolute;
+  left: 20px;
+  font-size: 1.2em;
+  line-height: 1; /* Alineación vertical del ícono */
+  top: 50%; /* Centrar verticalmente */
+  transform: translateY(-50%); /* Ajuste fino */
+}
+
+/* Estilos para el switch de modo inteligente */
+.smart-mode-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.7em; /* Tamaño de fuente más pequeño para el texto del switch */
+    font-weight: normal; /* No negrita */
+    white-space: nowrap; /* Evita que el texto se rompa */
+    padding-right: 15px; /* Espacio a la derecha */
+}
+
+.smart-mode-toggle label {
+    cursor: pointer;
+}
+
+.smart-mode-toggle input[type="checkbox"] {
+    /* Ocultar el checkbox nativo */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    width: 40px; /* Ancho del switch */
+    height: 20px; /* Alto del switch */
+    border-radius: 10px; /* Bordes redondeados */
+    background-color: #ccc; /* Color cuando está apagado */
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.smart-mode-toggle input[type="checkbox"]::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px; /* Tamaño del "pulgar" */
+    height: 16px;
+    border-radius: 50%;
+    background-color: white;
+    transition: transform 0.3s;
+}
+
+.smart-mode-toggle input[type="checkbox"]:checked {
+    background-color: #4CAF50; /* Verde cuando está encendido */
+}
+
+.smart-mode-toggle input[type="checkbox"]:checked::before {
+    transform: translateX(20px); /* Mover el pulgar a la derecha */
+}
+
+
+.chatbot-messages {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto; /* Permite el scroll de los mensajes */
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Un poco más de espacio entre burbujas */
+  background-color: #fcfdff; /* Fondo ligeramente diferente para el área de mensajes */
+}
+
+/* Estilo de la barra de scroll para WebKit (Chrome, Safari) */
+.chatbot-messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chatbot-messages::-webkit-scrollbar-track {
+  background: #e3f2fd; /* Color de fondo de la pista */
+  border-radius: 10px;
+}
+
+.chatbot-messages::-webkit-scrollbar-thumb {
+  background-color: #90caf9; /* Azul más oscuro para el "pulgar" */
+  border-radius: 10px;
+  border: 2px solid #fcfdff; /* Borde para el efecto 3D */
+}
+
+
+.message-bubble {
+  max-width: 75%; /* Más espacio para mensajes en PC */
+  padding: 14px 20px; /* Más padding para que se vea más robusto */
+  border-radius: 25px; /* Bordes más redondeados */
+  position: relative;
+  word-wrap: break-word; /* Permite que el texto se rompa y se ajuste */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra más definida para las burbujas */
+  font-size: 1.05em; /* Ligeramente más grande para lectura en PC */
+  line-height: 1.4; /* Espaciado entre líneas para mejor lectura */
+}
+
+.message-bubble.user {
+  align-self: flex-end;
+  background-color: #e3f2fd; /* Azul claro suave para mensajes del usuario */
+  color: #2196f3; /* Texto en azul de clínica */
+  border-bottom-right-radius: 8px; /* Pequeño ajuste para el "pico" */
+}
+
+.message-bubble.bot {
+  align-self: flex-start;
+  background-color: #bbdefb; /* Azul medio para mensajes del bot */
+  color: #1a237e; /* Texto azul oscuro para el bot */
+  border-bottom-left-radius: 8px; /* Pequeño ajuste para el "pico" */
+}
+
+.message-timestamp {
+  font-size: 0.7em; /* Un poco más pequeño */
+  color: #78909c; /* Color de texto más tenue para el timestamp */
+  display: block;
+  margin-top: 6px; /* Más espacio */
+  text-align: right;
+}
+
+.message-bubble.bot .message-timestamp {
+  text-align: left;
+}
+
+.chatbot-input-form {
+  display: flex;
+  padding: 20px;
+  border-top: 1px solid #e0e0e0;
+  background-color: #f5f5f5; /* Fondo ligero para el área de entrada */
+  gap: 10px; /* Espacio entre input y botón */
+}
+
+.chatbot-input-form input {
+  flex-grow: 1;
+  padding: 14px 18px; /* Más padding */
+  border: 1px solid #90caf9; /* Borde azul suave */
+  border-radius: 30px; /* Más redondeado */
+  font-size: 1.05em;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chatbot-input-form input:focus {
+  outline: none;
+  border-color: #2196f3; /* Azul primario al enfocar */
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.2); /* Sombra azul al enfocar */
+}
+
+.chatbot-input-form button {
+  background-color: #2196f3; /* Azul primario de clínica */
+  color: white;
+  border: none;
+  border-radius: 30px; /* Más redondeado */
+  padding: 14px 22px; /* Más padding */
+  font-size: 1.05em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  font-weight: bold; /* Texto del botón más robusto */
+}
+
+.chatbot-input-form button:hover {
+  background-color: #1976d2; /* Tono más oscuro al pasar el mouse */
+  transform: translateY(-1px); /* Efecto sutil de levantamiento */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.chatbot-input-form button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Estilos para el contenido Markdown */
+.message-content strong {
+  font-weight: bold;
+  color: #0d47a1; /* Azul más oscuro para negritas */
+}
+
+.message-content ul {
+  padding-left: 25px; /* Más indentación */
+  margin-top: 8px;
+  margin-bottom: 8px;
+  list-style-type: '• '; /* Viñetas con un ícono más moderno */
+}
+
+.message-content li {
+  margin-bottom: 5px;
+  padding-left: 5px; /* Espacio entre viñeta y texto */
+}
+
+/* --- Media Queries para Teléfonos (Mobile-first, luego sobrescribimos para pantallas grandes) --- */
+
+/* Estilos para pantallas pequeñas (smartphones en modo retrato y landscape) */
+@media (max-width: 768px) {
+  body {
+    align-items: flex-end; /* Para que el chatbot se asiente en la parte inferior en móviles */
+    padding-bottom: env(safe-area-inset-bottom); /* Para iOS notch */
+    background-color: #e3f2fd; /* Fondo de cuerpo también azul claro para móviles */
+  }
+
+  .chatbot-container {
+    width: 100%; /* Ocupa todo el ancho en móviles */
+    max-width: none; /* Elimina el límite de ancho de PC */
+    height: 100vh; /* Ocupa toda la altura de la pantalla en móviles */
+    min-height: auto; /* Elimina la altura mínima */
+    border-radius: 0; /* Sin bordes redondeados en los extremos */
+    box-shadow: none; /* Sin sombra para una apariencia más nativa */
+    border: none; /* Sin borde en móviles */
+  }
+
+  .chatbot-header {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    font-size: 1.3em; /* Tamaño de fuente adecuado para móviles */
+    padding: 18px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-direction: column; /* Apila el título y el switch en móvil */
+    gap: 10px; /* Espacio entre ellos */
+  }
+
+  .chatbot-header h1 {
+      font-size: 1em; /* Más pequeño para móvil */
+  }
+
+  .chatbot-header::before {
+    left: 15px; /* Ajusta la posición del icono en móvil */
+    top: 18px; /* Ajuste si el h1 es más pequeño */
+    transform: translateY(0); /* Desactivar transform */
+  }
+
+  .smart-mode-toggle {
+      font-size: 0.65em; /* Texto del switch más pequeño en móvil */
+      padding-right: 0; /* Eliminar padding derecho en móvil */
+  }
+
+  .chatbot-messages {
+    padding: 15px; /* Menos padding en móviles */
+    gap: 8px; /* Menos espacio entre burbujas */
+  }
+
+  .message-bubble {
+    max-width: 90%; /* Las burbujas pueden ser un poco más anchas */
+    font-size: 0.9em; /* Tamaño de fuente ligeramente más pequeño */
+    padding: 10px 15px; /* Menos padding en burbujas */
+    border-radius: 18px; /* Ligeramente menos redondeado */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  .message-bubble.user {
+    border-bottom-right-radius: 5px;
+  }
+
+  .message-bubble.bot {
+    border-bottom-left-radius: 5px;
+  }
+
+  .message-timestamp {
+    font-size: 0.65em;
+  }
+
+  .chatbot-input-form {
+    padding: 12px 15px; /* Menos padding en el formulario de entrada */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05); /* Sombra superior para separarlo */
+  }
+
+  .chatbot-input-form input {
+    padding: 10px 12px;
+    font-size: 0.9em;
+    border-radius: 25px;
+  }
+
+  .chatbot-input-form button {
+    padding: 10px 15px;
+    font-size: 0.9em;
+    border-radius: 25px;
+  }
+}
+
+/* --- Media Queries para tabletas (modo retrato) --- */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .chatbot-container {
+    width: 95%;
+    height: 90vh;
+    max-width: 750px; /* Ancho máximo para tabletas */
+  }
+
+  .chatbot-header {
+    font-size: 1.4em;
+    flex-direction: row; /* Asegura que no se apile en tablet si la pantalla es más ancha */
+    justify-content: space-between;
+  }
+
+  .chatbot-header h1 {
+      font-size: 1.1em;
+  }
+
+  .chatbot-header::before {
+      top: 50%;
+      transform: translateY(-50%);
+  }
+
+  .message-bubble {
+    max-width: 80%;
+  }
+}
