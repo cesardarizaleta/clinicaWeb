@@ -1,33 +1,27 @@
 import React, { useState, useEffect, useRef, type FormEvent, type ChangeEvent, type JSX } from 'react';
-import './App.css'; // Importa el archivo CSS para los estilos
-import chatbotResponsesData from './responses.json'; // Importa el JSON
-import type { Message, ChatResponse, ChatResponsesData } from './types'; // Importa las interfaces
+import './App.css'; 
+import chatbotResponsesData from './responses.json'; 
+import type { Message, ChatResponse, ChatResponsesData } from './types';
 
-// Importa la SDK de Gemini (asegúrate de instalarla: npm install @google/generative-ai)
 import { GoogleGenerativeAI, type GenerativeModel } from '@google/generative-ai';
 
-// Asegúrate de que VITE_GEMINI_KEY esté definida en tu archivo .env.local o .env
 const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_KEY; 
 
-let model: GenerativeModel | null; // Declaramos 'model' fuera del componente para que persista
-let genAI: GoogleGenerativeAI; // Aseguramos el tipo para genAI
+let model: GenerativeModel | null; 
+let genAI: GoogleGenerativeAI;
 
 try {
   genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-  // Revisa la documentación oficial de Gemini para los nombres de modelos más recientes y disponibles.
-  // "gemini-2.5-flash-lite-preview-06-17" es un modelo de preview, asegúrate de que aún esté activo y disponible.
-  // Un modelo más estable podría ser "gemini-pro" o "gemini-1.5-flash".
   model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite-preview-06-17" }); 
   console.log("Modelo Gemini inicializado con 'gemini-2.5-flash-lite-preview-06-17'.");
 } catch (error) {
   console.error("Error al inicializar GoogleGenerativeAI o el modelo:", error);
-  model = null; // Asegúrate de que el modelo sea null si falla la inicialización
+  model = null; 
 }
 
 
 const chatbotResponses: ChatResponse[] = (chatbotResponsesData as ChatResponsesData).respuestas;
 
-// --- Nueva función para construir el prompt de Gemini ---
 const buildGeminiPrompt = (userMessage: string, responsesData: ChatResponse[]): string => {
   const clinicContext = `
     Eres un asistente virtual de una clínica médica ubicada en Valencia, Carabobo, Venezuela.
@@ -48,18 +42,17 @@ const buildGeminiPrompt = (userMessage: string, responsesData: ChatResponse[]): 
     Considerando el contexto de la clínica y la información proporcionada, por favor responde a la siguiente pregunta del usuario. Si la pregunta es específica de un servicio de clínica, puedes usar la información de referencia. Si es una pregunta general de salud o algo que va más allá de los servicios directos de la clínica, responde de manera informativa y útil, como lo haría un asistente de IA, pero siempre manteniendo un tono profesional y relacionado con el sector salud. Evita mencionar que tienes un JSON o que tu respuesta proviene de una base de datos.
     
     Pregunta del usuario: "${userMessage}"
-    `.trim(); // .trim() para eliminar espacios extra al inicio/final
+    `.trim();
 
   return finalPrompt;
 };
 
-// --- Fin de la nueva función ---
 
 
 function App(): JSX.Element {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState<string>('');
-  const [smartMode, setSmartMode] = useState<boolean>(false); // Nuevo estado para el modo inteligente
+  const [smartMode, setSmartMode] = useState<boolean>(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const initialMessage: Message = {
@@ -97,11 +90,10 @@ function App(): JSX.Element {
   const handleBotResponse = async (userMessage: string): Promise<void> => {
     let botReplyText: string;
 
-    if (smartMode && model) { // Asegurarse de que el modelo esté inicializado
-      // Modo inteligente: usar Gemini
+    if (smartMode && model) {
       try {
-        const geminiPrompt = buildGeminiPrompt(userMessage, chatbotResponses); // Construye el prompt con contexto
-        const result = await model.generateContent(geminiPrompt); // Envía el prompt a Gemini
+        const geminiPrompt = buildGeminiPrompt(userMessage, chatbotResponses); 
+        const result = await model.generateContent(geminiPrompt);
         const response = await result.response;
         botReplyText = response.text();
       } catch (error) {
@@ -109,7 +101,6 @@ function App(): JSX.Element {
         botReplyText = "Lo siento, tengo problemas para conectarme con mi cerebro inteligente en este momento. Esto podría deberse a un problema de conexión, a que el modelo de IA no está disponible o a la complejidad de la solicitud. Por favor, inténtalo de nuevo más tarde o desactiva el Modo Inteligente.";
       }
     } else {
-      // Modo por defecto: usar JSON
       const normalizedUserMessage: string = userMessage.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
       const foundResponse: ChatResponse | undefined = chatbotResponses.find((response) =>
         response.palabras_clave.some((keyword) =>
@@ -140,15 +131,12 @@ function App(): JSX.Element {
     setSmartMode(isChecked);
 
     if (!model && isChecked) {
-        // Si no hay modelo y el usuario intenta activar el modo inteligente
         const noModelMessage: Message = {
             text: "⚠️ No se pudo cargar el Modo Inteligente. Asegúrate de que tu clave API sea válida y el modelo esté disponible.",
             sender: 'bot',
             timestamp: new Date().toLocaleTimeString(),
         };
         setMessages((prevMessages) => [...prevMessages, noModelMessage]);
-        // Podrías incluso deshabilitar el switch de nuevo si lo deseas:
-        // setSmartMode(false); 
         return; 
     }
 
@@ -184,7 +172,7 @@ function App(): JSX.Element {
             id="smart-mode-switch"
             checked={smartMode}
             onChange={handleSmartModeChange}
-            disabled={!model} // Deshabilitar el switch si el modelo no se inicializó
+            disabled={!model} 
           />
         </div>
       </header>
