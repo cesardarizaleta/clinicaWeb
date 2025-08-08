@@ -76,4 +76,111 @@
       "respuesta": "🦴 **Servicio de Traumatología**:\n\n👨‍⚕️ **Especialista**: Dr. José Martín\n\n🏥 **Tratamos**:\n• Fracturas de todo tipo\n• Luxaciones\n• Lesiones deportivas\n• Artritis y artrosis\n• Dolor de espalda\n• Cirugía ortopédica\n• Rehabilitación\n\n📱 **Rayos X**: Disponible en el momento\n🚑 **Emergencias**: Atención inmediata\n📅 **Consultas**: Lunes a Viernes\n⏰ **Horarios**: 8:00 AM - 6:00 PM\n\n📞 **Citas**: (01) 234-5678"
     }
   ]
+  ,
+  "terminos": {
+    "lastUpdated": "2025-07-01",
+    "intro": "Estos Términos y Condiciones regulan el acceso y uso de los servicios de la Clínica San Rafael Valencia. Por favor, léelos detenidamente.",
+    "contactEmail": "info@clinicasaludvalencia.com",
+    "sections": [
+      {
+        "id": "aceptacion",
+        "title": "Aceptación de los Términos",
+        "icon": "🤝",
+        "highlightColor": "#e3f2fd",
+        "paragraphs": [
+          "Al acceder y utilizar nuestros servicios, aceptas estos términos. Si no estás de acuerdo, te pedimos no utilizar la plataforma ni los servicios asociados."
+        ]
+      },
+      {
+        "id": "servicios",
+        "title": "Servicios Médicos",
+        "icon": "🩺",
+        "highlightColor": "#ffe0b2",
+        "paragraphs": [
+          "Ofrecemos consulta, diagnóstico, tratamiento y hospitalización, sujetos a disponibilidad y evaluación profesional.",
+          "Las recomendaciones médicas siempre deben ser personalizadas y evaluadas por un profesional de salud."
+        ]
+      },
+      {
+        "id": "privacidad",
+        "title": "Privacidad y Protección de Datos",
+        "icon": "🔒",
+        "highlightColor": "#c8e6c9",
+        "paragraphs": [
+          "Respetamos la confidencialidad de tus datos personales y médicos.",
+          "Consulta nuestra Política de Privacidad para más detalles sobre tratamiento, conservación y ejercicio de derechos ARCO."
+        ]
+      },
+      {
+        "id": "responsabilidad",
+        "title": "Limitación de Responsabilidad",
+        "icon": "⚖️",
+        "highlightColor": "#ffe082",
+        "paragraphs": [
+          "No nos hacemos responsables por el uso inadecuado de la información disponible en este sitio ni por decisiones tomadas sin consulta médica profesional."
+        ]
+      },
+      {
+        "id": "modificaciones",
+        "title": "Modificaciones de los Términos",
+        "icon": "🔄",
+        "highlightColor": "#f8bbd0",
+        "paragraphs": [
+          "Podemos actualizar estos términos en cualquier momento. Las modificaciones entrarán en vigor al publicarse en esta página."
+        ]
+      },
+      {
+        "id": "contacto",
+        "title": "Contacto",
+        "icon": "📧",
+        "highlightColor": "#b3e5fc",
+        "paragraphs": [
+          "Para consultas o solicitudes relacionadas con estos términos, contáctanos por correo electrónico."
+        ]
+      }
+    ]
+  }
+  ,
+  "site": {
+    "hero": {
+      "title": "Clínica San Rafael Valencia",
+      "subtitle": "Tu salud, nuestra prioridad en Valencia, Carabobo, Venezuela."
+    },
+    "about": {
+      "description": "Somos una clínica médica moderna ubicada en Valencia, Carabobo, Venezuela, dedicada a brindar atención integral y de calidad a nuestros pacientes. Contamos con un equipo de profesionales altamente calificados y tecnología de punta para ofrecerte el mejor servicio.",
+      "mission": "Brindar atención médica de excelencia, humana y personalizada, promoviendo la salud y el bienestar de la comunidad.",
+      "vision": "Ser la clínica líder en servicios de salud en la región, reconocida por su innovación, calidad y compromiso social.",
+      "values": [
+        "Más de 30 años de experiencia en el sector salud.",
+        "Atención personalizada y ética profesional.",
+        "Infraestructura moderna y segura.",
+        "Compromiso social con la comunidad."
+      ],
+      "imageUrl": "/vite.svg"
+    },
+    "contacto": {
+      "address": "Av. Salud 1234, San Isidro, Valencia, Carabobo, Venezuela",
+      "phone": "+582412345678",
+      "whatsapp": "+584123456789",
+      "email": "info@clinicasaludvalencia.com",
+      "socials": [
+        { "name": "Facebook", "url": "#", "icon": "🌐" },
+        { "name": "Instagram", "url": "#", "icon": "📸" },
+        { "name": "Twitter", "url": "#", "icon": "🐦" }
+      ]
+    },
+    "equipoMedico": [
+      { "name": "Dr. Juan Pérez", "role": "Director Médico, Especialista en Medicina Interna", "icon": "🧑‍⚕️" },
+      { "name": "Dra. María González", "role": "Pediatra", "icon": "👩‍⚕️" },
+      { "name": "Dr. Carlos Ramírez", "role": "Cirujano General", "icon": "🧑‍⚕️" },
+      { "name": "Dra. Ana Torres", "role": "Cardióloga", "icon": "👩‍⚕️" },
+      { "name": "Dr. Luis Mendoza", "role": "Emergenciólogo", "icon": "🧑‍⚕️" }
+    ],
+    "propiedades": [
+      { "name": "Monitor Cardíaco", "type": "Equipo Médico", "icon": "❤️", "status": "Implantado" },
+      { "name": "Box de Emergencia", "type": "Infraestructura", "icon": "🚨", "status": "Implantado" },
+      { "name": "Resonador Magnético", "type": "Equipo Médico", "icon": "🧲", "status": "No implantado" },
+      { "name": "Ambulancia", "type": "Vehículo", "icon": "🚑", "status": "Implantado" }
+    ]
+  }
 }

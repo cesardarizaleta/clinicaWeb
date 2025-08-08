@@ -17,6 +17,7 @@ html {
   font-family: 'Segoe UI', Arial, sans-serif;
   background: #f7fafd;
   min-height: 100vh;
+  height: 100vh;
   width: 100vw;
   padding-bottom: 60px;
   position: relative;
@@ -449,3 +450,478 @@ html {
     bottom: 12px;
   }
 }
+
+/* NAVBAR FIJO Y BONITO - MEJORADO */
+.navbar-fixed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 100;
+  background: rgba(20, 93, 160, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 24px 0 rgba(44, 62, 80, 0.10);
+  transition: background 0.3s, box-shadow 0.3s;
+  animation: navbar-fade-in 0.7s;
+}
+
+@keyframes navbar-fade-in {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.navbar-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1.2rem 0.5rem 1.2rem;
+  min-height: 48px;
+}
+
+.navbar-logo {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: color 0.2s;
+  padding-right: 1.2rem;
+}
+
+.navbar-logo:hover {
+  color: #2e8bc0;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.1rem;
+  align-items: center;
+}
+
+.navbar-link {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.3rem 0.9rem;
+  border-radius: 16px;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.navbar-link:hover, .navbar-link.active {
+  background: #fff;
+  color: #145da0;
+}
+
+/* HAMBURGER MENU */
+.navbar-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+@media (max-width: 800px) {
+  .navbar-content {
+    padding: 0.3rem 0.5rem;
+  }
+  .navbar-logo {
+    font-size: 1.05rem;
+    padding-right: 0.5rem;
+  }
+  .navbar-links {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 44px;
+  }
+  .navbar-links {
+    display: none;
+    position: absolute;
+    top: 44px;
+    left: 0;
+    width: 100vw;
+    background: rgba(20, 93, 160, 0.97);
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.7rem 0 0.7rem 0;
+    box-shadow: 0 4px 24px 0 rgba(44, 62, 80, 0.10);
+    border-radius: 0 0 12px 12px;
+    z-index: 101;
+  }
+  .navbar-links.open {
+    display: flex;
+  }
+  .navbar-hamburger {
+    display: block;
+  }
+}
+
+.navbar-spacer {
+  height: 48px;
+  width: 100vw;
+}
+
+/* PAGE CONTENT Y SECCIONES MÁS COMPACTAS */
+.page-content {
+  height: 100vh;
+  width: 100vw;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(44, 62, 80, 0.07);
+  padding: 1.2rem 1rem 1.2rem 1rem;
+  margin: 1.2rem auto 1.2rem auto;
+  max-width: 700px;
+  min-height: 220px;
+  color: #145da0;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.page-content h2 {
+  color: #2e8bc0;
+  margin-bottom: 0.7rem;
+  font-size: 1.3rem;
+}
+.page-content h3 {
+  color: #145da0;
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+  font-size: 1.05rem;
+}
+.page-content ul {
+  margin: 0.7rem 0 0.7rem 1.1rem;
+  padding-left: 1rem;
+}
+.page-content li {
+  margin-bottom: 0.3rem;
+}
+
+.propiedades-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1rem 0;
+  background: #f7fafd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 6px rgba(44, 62, 80, 0.05);
+  font-size: 0.97rem;
+}
+.propiedades-table th, .propiedades-table td {
+  padding: 0.5rem 0.7rem;
+  text-align: left;
+  border-bottom: 1px solid #e3eaf2;
+}
+.propiedades-table th {
+  background: #2e8bc0;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.propiedades-table tr:last-child td {
+  border-bottom: none;
+}
+.propiedades-desc {
+  margin-top: 0.7rem;
+  color: #145da0;
+  font-size: 0.95rem;
+}
+
+.landing-section {
+  margin: 1.2rem auto;
+  max-width: 900px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.06);
+  padding: 1.2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Mantener alineación a la izquierda para listas y tablas dentro de secciones centradas */
+.page-content ul,
+.page-content ol,
+.page-content table,
+.landing-section ul,
+.landing-section ol,
+.landing-section table {
+  text-align: left;
+  align-self: center;
+}
+
+.landing-section h2 {
+  color: #145da0;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 700px) {
+  .page-content {
+    padding: 0.7rem 0.2rem 0.7rem 0.2rem;
+    font-size: 0.97rem;
+    max-width: 98vw;
+  }
+  .propiedades-table th, .propiedades-table td {
+    padding: 0.3rem 0.2rem;
+    font-size: 0.93rem;
+  }
+  .landing-section {
+    padding: 0.7rem 0.2rem;
+    max-width: 99vw;
+  }
+}
+
+/* ========================= */
+/* TÉRMINOS Y CONDICIONES UI */
+/* ========================= */
+
+.terminos-page {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f7fafd 0%, #ffffff 100%);
+}
+
+.terminos-hero {
+  background: linear-gradient(120deg, #2e8bc0 0%, #145da0 100%);
+  color: #fff;
+  padding: 4rem 1rem 3rem 1rem;
+}
+
+.terminos-hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.terminos-title {
+  font-size: 2.2rem;
+  margin: 0.3rem 0;
+}
+
+.terminos-sub {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  margin-bottom: 0.4rem;
+}
+
+.terminos-updated {
+  font-size: 0.95rem;
+  color: #eaf6fb;
+}
+
+.terminos-content {
+  max-width: 1100px;
+  margin: -2rem auto 2rem auto;
+  padding: 0 1rem;
+}
+
+.terminos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2rem;
+}
+
+.termino-card-creative {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.1rem 1rem;
+  box-shadow: 0 2px 10px rgba(44, 62, 80, 0.07);
+  border: 1px solid #e9f2fb;
+}
+
+.termino-icon-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.termino-body h3 {
+  color: #145da0;
+  margin: 0 0 0.35rem 0;
+  font-size: 1.1rem;
+}
+
+.termino-body p {
+  color: #334e68;
+  margin: 0.15rem 0;
+  font-size: 0.98rem;
+}
+
+.termino-cta a.link-privacidad,
+.termino-cta a.link-mail {
+  color: #145da0;
+  text-decoration: underline;
+}
+
+.terminos-footer-note {
+  text-align: center;
+  padding: 1.5rem 1rem 2.5rem 1rem;
+  color: #487aa8;
+}
+
+@media (max-width: 600px) {
+  .terminos-title {
+    font-size: 1.5rem;
+  }
+  .terminos-sub {
+    font-size: 0.98rem;
+  }
+}
+
+/* =============== */
+/* OTRAS VISTAS UI */
+/* =============== */
+
+/* Sobre Nosotros */
+.sobre-nosotros-pro .sobre-nosotros-main {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+.sobre-nosotros-pro .valor-card {
+  background: #f7fafd;
+  border: 1px solid #e9f2fb;
+  border-radius: 12px;
+  padding: 0.8rem 0.9rem;
+  box-shadow: 0 1px 4px rgba(44, 62, 80, 0.04);
+}
+.sobre-nosotros-pro .valor-card h4 { margin: 0 0 0.25rem 0; color:#145da0; }
+.sobre-nosotros-pro .sobre-nosotros-img img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(44,62,80,0.12);
+}
+@media (max-width: 800px) {
+  .sobre-nosotros-pro .sobre-nosotros-main { grid-template-columns: 1fr; }
+}
+
+/* Equipo Médico */
+.equipo-medico-pro .equipo-medico-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem; 
+}
+.medico-card-pro {
+  background: #ffffff;
+  border: 1px solid #e9f2fb;
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.06);
+}
+
+/* Propiedades */
+.propiedades-pro .propiedades-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem; 
+}
+.propiedad-card-pro {
+  background: #ffffff;
+  border: 1px solid #e9f2fb;
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.06);
+}
+.propiedad-card-pro .implantado { color: #1b5e20; background:#e8f5e9; padding: 2px 8px; border-radius: 10px; }
+.propiedad-card-pro .no-implantado { color:#b71c1c; background:#ffebee; padding: 2px 8px; border-radius: 10px; }
+
+/* Servicios */
+.servicios-pro .servicios-lista-pro {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+.servicio-card-vista-pro {
+  background: #ffffff;
+  border: 1px solid #e9f2fb;
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.06);
+}
+
+/* Contacto */
+.contacto-view-pro .contacto-cards-pro {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+.contacto-view-pro .contacto-card { 
+  background: #ffffff; 
+  border: 1px solid #e9f2fb; 
+  border-radius: 14px; 
+  padding: 1rem; 
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.06);
+}
+.contacto-view-pro .social-links a { display:inline-flex; align-items:center; gap:6px; }
+
+/* Hero genérico para páginas (misma línea visual que Términos) */
+.page-hero {
+  background: linear-gradient(120deg, #2e8bc0 0%, #145da0 100%);
+  color: #fff;
+  padding: 3.5rem 1rem 2.5rem 1rem;
+}
+.page-hero .page-hero-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+.page-hero .page-hero-title { font-size: 2rem; margin: 0.25rem 0; }
+.page-hero .page-hero-sub { font-size: 1rem; opacity: 0.95; }
+.page-hero .icono-hero {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 58px; height: 58px; border-radius: 50%; background: rgba(255,255,255,0.12);
+  font-size: 1.6rem;
+}
+
+/* Tarjetas con microinteracción y entrada suave */
+.animated-card {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  animation: fade-in-up 0.35s ease both;
+}
+.animated-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(44, 62, 80, 0.12) !important;
+}
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Chips de navegación (usado en Términos) */
+.chips-nav { 
+  display: flex; gap: 0.5rem; flex-wrap: wrap; overflow-x: auto; padding: 0.5rem 0.2rem; 
+}
+.chip {
+  background: #ffffff;
+  color: #145da0;
+  border: 1px solid #e9f2fb;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.chip:hover { background: #eaf6fb; }

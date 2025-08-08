@@ -1,0 +1,148 @@
+/* src/components/Propiedades.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --primary-color: #004d40;
+  --secondary-color: #00796b;
+  --background-color: #f0f2f5;
+  --card-bg-color: #ffffff;
+  --text-dark: #212121;
+  --text-light: #616161;
+  --status-implantado-bg: #e8f5e9;
+  --status-implantado-text: #2e7d32;
+  --status-proceso-bg: #fffde7;
+  --status-proceso-text: #fbc02d;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  color: var(--text-dark);
+}
+
+.propiedades-scroll-container {
+  padding: 60px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.propiedades-header-section {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.main-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.main-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.propiedades-grid-scroll {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  padding: 20px 0;
+}
+
+/* Card Styling */
+.modern-card {
+  background: var(--card-bg-color);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.modern-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.modern-card:hover::before {
+  transform: scaleX(1);
+}
+
+.modern-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.card-icon-wrapper {
+  background: var(--background-color);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.card-icon {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--text-dark);
+}
+
+.card-type {
+  font-size: 1rem;
+  color: var(--text-light);
+  margin: 0 0 15px;
+}
+
+.card-status {
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  align-self: flex-start;
+}
+
+.status-implantado {
+  background-color: var(--status-implantado-bg);
+  color: var(--status-implantado-text);
+}
+
+.status-en-proceso {
+  background-color: var(--status-proceso-bg);
+  color: var(--status-proceso-text);
+}

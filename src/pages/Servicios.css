@@ -1,0 +1,97 @@
+/* src/components/Servicios.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --primary-color: #004d40;
+  --secondary-color: #00796b;
+  --background-color: #f8f9fa;
+  --card-bg-color: #ffffff;
+  --text-dark: #212121;
+  --text-light: #616161;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-dark);
+}
+
+.servicios-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* Encabezado */
+.servicios-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.servicios-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.servicios-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Contenedor de la grilla de servicios */
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* Estilo de la tarjeta de servicio */
+.servicio-card {
+  background: var(--card-bg-color);
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.servicio-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.servicio-card-icon {
+  font-size: 3.5rem;
+  color: var(--secondary-color);
+  background: var(--background-color);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+.servicio-card-content {
+  flex-grow: 1;
+}
+
+.servicio-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 10px;
+  color: var(--text-dark);
+}
+
+.servicio-card-desc {
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  margin: 0;
+}

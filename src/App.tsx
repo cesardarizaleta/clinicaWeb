@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef, type FormEvent, type ChangeEvent, t
 import './App.css'; 
 import chatbotResponsesData from './responses.json'; 
 import type { Message, ChatResponse, ChatResponsesData } from './types';
-
 import { GoogleGenerativeAI, type GenerativeModel } from '@google/generative-ai';
+import { useNavigate } from 'react-router-dom';
 
 const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_KEY; 
 
@@ -24,8 +24,21 @@ const chatbotResponses: ChatResponse[] = (chatbotResponsesData as ChatResponsesD
 
 const buildGeminiPrompt = (userMessage: string, responsesData: ChatResponse[]): string => {
   const clinicContext = `
-    Eres un asistente virtual de una clínica médica ubicada en Valencia, Carabobo, Venezuela.
-    Tu objetivo es ayudar a los usuarios con información general y específica sobre los servicios de la clínica.
+    Eres un asistente virtual profesional de la Clínica San Rafael Valencia.
+    Tu objetivo es ayudar a los usuarios con información clara, útil y visualmente atractiva sobre los servicios y secciones de la clínica.
+    Si consideras que el usuario debe ser redirigido a una sección o ruta específica, responde de forma profesional y elabora una breve descripción atractiva de la sección antes del @ruta, usando nombres amigables y visuales para cada ruta. Ejemplo:
+    "🌟 Nuestra sección <b>Sobre Nosotros</b> te permitirá conocer la historia, valores y el equipo humano que hace posible nuestra atención de excelencia. @ruta:/sobre-nosotros"
+    SOLO puedes usar los siguientes nombres de sección/ruta y sus rutas asociadas:
+    - <b>Inicio</b> (/inicio): Página principal con información general y acceso rápido a todos los servicios.
+    - <b>Términos</b> (/terminos): Consulta los términos y condiciones de nuestros servicios médicos.
+    - <b>Propiedades</b> (/propiedades): Descubre la infraestructura, equipos y recursos de la clínica.
+    - <b>Sobre Nosotros</b> (/sobre-nosotros): Conoce nuestra historia, misión, visión y valores.
+    - <b>Servicios</b> (/servicios): Explora todas las especialidades y servicios médicos que ofrecemos.
+    - <b>Equipo Médico</b> (/equipo-medico): Información sobre nuestros doctores y especialistas.
+    - <b>Contacto</b> (/contacto): Formas de contacto, ubicación y canales de atención.
+    No inventes rutas como terminos-y-condiciones, terminos-de-uso, ni variantes. Usa únicamente los nombres y rutas reales indicados arriba.
+    Si usas @section o @ruta, hazlo al final de tu respuesta y no expliques el comando. Si la respuesta incluye ambos, prioriza @ruta.
+    Sé siempre profesional, cálido, breve y visualmente atractivo en tus respuestas, resaltando los beneficios o información relevante de cada sección antes de redirigir. Puedes usar emojis o negritas para hacer la respuesta más visual.
     Aquí hay información estructurada sobre los servicios de la clínica que puedes usar como referencia, aunque no siempre es necesario responder solo con esto, sino para guiar tu comprensión:
     `;
 
@@ -54,6 +67,7 @@ function App(): JSX.Element {
   const [input, setInput] = useState<string>('');
   const [smartMode, setSmartMode] = useState<boolean>(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const initialMessage: Message = {
     text: "👋 ¡Hola! Soy tu asistente virtual de la clínica. ¿En qué puedo ayudarte hoy? Puedes activar el **Modo Inteligente** para una conversación más abierta.",
@@ -73,6 +87,7 @@ function App(): JSX.Element {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+
   const handleSendMessage = (e: FormEvent): void => {
     e.preventDefault();
     if (input.trim() === '') return;
@@ -87,8 +102,20 @@ function App(): JSX.Element {
     setInput('');
   };
 
+  const validSections = [
+    'inicio',
+    'terminos',
+    'propiedades',
+    'sobre-nosotros',
+    'servicios',
+    'equipo-medico',
+    'contacto',
+  ];
+
   const handleBotResponse = async (userMessage: string): Promise<void> => {
     let botReplyText: string;
+    let sectionToScroll: string | null = null;
+    let routeToNavigate: string | null = null;
 
     if (smartMode && model) {
       try {
@@ -101,10 +128,10 @@ function App(): JSX.Element {
         botReplyText = "Lo siento, tengo problemas para conectarme con mi cerebro inteligente en este momento. Esto podría deberse a un problema de conexión, a que el modelo de IA no está disponible o a la complejidad de la solicitud. Por favor, inténtalo de nuevo más tarde o desactiva el Modo Inteligente.";
       }
     } else {
-      const normalizedUserMessage: string = userMessage.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      const normalizedUserMessage: string = userMessage.toLowerCase().normalize("NFD").replace(/[^a-z0-9 ]/g, "");
       const foundResponse: ChatResponse | undefined = chatbotResponses.find((response) =>
         response.palabras_clave.some((keyword) =>
-          normalizedUserMessage.includes(keyword.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""))
+          normalizedUserMessage.includes(keyword.toLowerCase().normalize("NFD").replace(/[^a-z0-9 ]/g, ""))
         )
       );
 
@@ -115,6 +142,22 @@ function App(): JSX.Element {
       }
     }
 
+    // Detecta @ruta, @section:NAME y también @NAME (ej: @contacto)
+    const routeMatch = botReplyText.match(/@ruta:([/a-zA-Z0-9-]+)/);
+    const sectionMatch = botReplyText.match(/@section:([a-zA-Z0-9-]+)/);
+    const atSectionMatch = botReplyText.match(/@([a-zA-Z0-9-]+)/);
+
+    if (routeMatch) {
+      routeToNavigate = routeMatch[1];
+      botReplyText = botReplyText.replace(/@ruta:[/a-zA-Z0-9-]+/, '').trim();
+    } else if (sectionMatch && validSections.includes(sectionMatch[1])) {
+      sectionToScroll = sectionMatch[1];
+      botReplyText = botReplyText.replace(/@section:([a-zA-Z0-9-]+)/, '').trim();
+    } else if (atSectionMatch && validSections.includes(atSectionMatch[1])) {
+      sectionToScroll = atSectionMatch[1];
+      botReplyText = botReplyText.replace(/@([a-zA-Z0-9-]+)/, '').trim();
+    }
+
     const botReply: Message = {
       text: botReplyText,
       sender: 'bot',
@@ -123,6 +166,11 @@ function App(): JSX.Element {
 
     setTimeout(() => {
       setMessages((prevMessages) => [...prevMessages, botReply]);
+      if (routeToNavigate) {
+        navigate(routeToNavigate);
+      } else if (sectionToScroll) {
+        navigate(`/${sectionToScroll}`);
+      }
     }, 500);
   };
 

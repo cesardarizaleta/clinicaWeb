@@ -1,0 +1,314 @@
+/* src/components/Home.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --primary-color: #004d40;
+  --secondary-color: #00796b;
+  --accent-color: #00acc1;
+  --background-light: #f0f4f7;
+  --card-bg-color: #ffffff;
+  --text-dark: #212121;
+  --text-light: #616161;
+  --shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-dark);
+  background-color: var(--background-light);
+  margin: 0;
+}
+
+.home-container {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+  position: relative;
+  height: 80vh;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: #fff;
+  background-image: url("https://medicimagensanrafael.com/wp-content/uploads/2024/02/slider3.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-blend-mode: multiply;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 0 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 0 0 20px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.hero-cta-button {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: var(--secondary-color);
+  color: #fff;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.hero-cta-button:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* --- SECTION GENERAL STYLES --- */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-align: center;
+  margin: 60px 0 30px;
+}
+
+/* --- BENTO GRID SECTIONS --- */
+.landing-section-bento {
+  padding: 20px 20px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.bento-grid-container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(200px, auto); /* Altura mínima para las tarjetas */
+}
+
+/* Base Card Styling */
+.bento-card {
+  background-color: var(--card-bg-color);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.bento-card.large-card {
+  grid-column: span 2;
+}
+
+.bento-card.large-card--gradient {
+  background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
+}
+
+.bento-card.small-card {
+  grid-column: span 1;
+}
+
+.bento-card.accent-card {
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.bento-card.highlight-card {
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.bento-card.image-card {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bento-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  transition: transform 0.5s ease;
+}
+
+.bento-card.image-card:hover .bento-image {
+  transform: scale(1.05);
+}
+
+.bento-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+.accent-card .bento-title,
+.highlight-card .bento-title {
+  color: #fff;
+}
+
+.bento-cta {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: var(--accent-color);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.bento-cta:hover {
+  background-color: #0097a7;
+  transform: translateY(-3px);
+}
+
+.bento-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bento-list li {
+  background-color: var(--background-light);
+  padding: 12px 18px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.bento-list li:hover {
+  background-color: #d8e5e8;
+}
+
+.bento-card.large-card-details {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.details-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: var(--background-light);
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.detail-item:hover {
+  background-color: #d8e5e8;
+}
+
+.detail-icon {
+  font-size: 1.5rem;
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 8px;
+  line-height: 1;
+}
+
+strong {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+/* Responsive adjustments for Bento Grid */
+@media (max-width: 1024px) {
+  .bento-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .bento-card.large-card,
+  .bento-card.small-card,
+  .bento-card.large-card-details {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .bento-grid-container {
+    grid-template-columns: 1fr;
+  }
+  .bento-card.large-card,
+  .bento-card.small-card,
+  .bento-card.large-card-details {
+    grid-column: span 1;
+  }
+  .details-list {
+    grid-template-columns: 1fr;
+  }
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
